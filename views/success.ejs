@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Successful</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="container success-card">
+    <div class="success-icon">✓</div>
+    <h1>Registration Successful!</h1>
+    <p>Thank you, <strong><%= name %></strong>.</p>
+    <p>Your alumni registration has been saved successfully.</p>
+    <p><strong>Registration ID:</strong> <%= id %></p>
+
+    <% if (profileImage) { %>
+        <img class="profile-preview"
+             src="/uploads/<%= profileImage %>"
+             alt="Profile Image">
+    <% } %>
+
+    <a class="button-link" href="/">Register Another Alumni</a>
+</div>
+</body>
+</html>

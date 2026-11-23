@@ -1,0 +1,161 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #eef2f7;
+    color: #1f2937;
+}
+
+.container {
+    max-width: 1050px;
+    margin: 35px auto;
+    background: white;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 10px 35px rgba(0,0,0,.10);
+}
+
+.header {
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 14px;
+    background: #173b68;
+    color: white;
+}
+
+.header h1 {
+    margin: 0 0 8px;
+}
+
+h2 {
+    margin-top: 30px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #dbe4ef;
+    color: #173b68;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin: 10px 0 7px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 11px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
+.options {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 10px 0 18px;
+}
+
+.options label {
+    font-weight: normal;
+    margin: 0;
+}
+
+.options input {
+    width: auto;
+}
+
+.upload-box {
+    background: #f8fafc;
+    border: 2px dashed #cbd5e1;
+    padding: 18px;
+    border-radius: 12px;
+    margin: 15px 0;
+}
+
+.upload-box small {
+    display: block;
+    margin-top: 7px;
+    color: #64748b;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+button, .button-link {
+    border: none;
+    padding: 13px 22px;
+    border-radius: 8px;
+    background: #2563eb;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+button:hover, .button-link:hover {
+    opacity: .9;
+}
+
+button.reset {
+    background: #64748b;
+}
+
+.success-card {
+    text-align: center;
+    max-width: 650px;
+}
+
+.success-icon {
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: #16a34a;
+    color: white;
+    font-size: 38px;
+}
+
+.profile-preview {
+    display: block;
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    margin: 20px auto;
+    border-radius: 50%;
+    border: 5px solid #e2e8f0;
+}
+
+.button-link {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+@media (max-width: 700px) {
+    .container {
+        margin: 10px;
+        padding: 20px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}

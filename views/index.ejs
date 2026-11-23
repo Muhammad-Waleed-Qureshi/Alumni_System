@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni Registration</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>Alumni Registration</h1>
+        <p>Web Engineering Lab — EJS + Express + MySQL</p>
+    </div>
+
+    <form action="/register" method="POST" enctype="multipart/form-data">
+
+        <h2>1. Personal Information</h2>
+        <div class="grid">
+            <div>
+                <label>Full Name *</label>
+                <input type="text" name="full_name" required>
+            </div>
+
+            <div>
+                <label>Email *</label>
+                <input type="email" name="email" required>
+            </div>
+
+            <div>
+                <label>Password *</label>
+                <input type="password" name="password" minlength="6" required>
+            </div>
+
+            <div>
+                <label>Phone</label>
+                <input type="tel" name="phone" placeholder="+92xxxxxxxxxx">
+            </div>
+
+            <div>
+                <label>Date of Birth</label>
+                <input type="date" name="dob">
+            </div>
+        </div>
+
+        <label>Gender</label>
+        <div class="options">
+            <label><input type="radio" name="gender" value="Male"> Male</label>
+            <label><input type="radio" name="gender" value="Female"> Female</label>
+        </div>
+
+        <h2>2. Academic Information</h2>
+        <div class="grid">
+            <div>
+                <label>Department</label>
+                <select name="department">
+                    <option value="">Select Department</option>
+                    <option>Computer Science</option>
+                    <option>Information Technology</option>
+                    <option>Software Engineering</option>
+                    <option>Electrical Engineering</option>
+                    <option>Business Administration</option>
+                </select>
+            </div>
+
+            <div>
+                <label>Graduation Year</label>
+                <select name="graduation_year">
+                    <option value="">Select Year</option>
+                    <option>2022</option>
+                    <option>2023</option>
+                    <option>2024</option>
+                    <option>2025</option>
+                    <option>2026</option>
+                </select>
+            </div>
+
+            <div>
+                <label>CGPA</label>
+                <input type="number" name="cgpa" min="0" max="4" step="0.01">
+            </div>
+        </div>
+
+        <label>Degree Program</label>
+        <div class="options">
+            <label><input type="radio" name="degree_program" value="BS"> BS</label>
+            <label><input type="radio" name="degree_program" value="MS"> MS</label>
+            <label><input type="radio" name="degree_program" value="PhD"> PhD</label>
+        </div>
+
+        <h2>3. Professional Information</h2>
+        <div class="grid">
+            <div>
+                <label>Employment Status</label>
+                <select name="employment_status">
+                    <option value="">Select Status</option>
+                    <option>Student</option>
+                    <option>Employed</option>
+                    <option>Self Employed</option>
+                    <option>Unemployed</option>
+                </select>
+            </div>
+
+            <div>
+                <label>Company / Organization</label>
+                <input type="text" name="company">
+            </div>
+
+            <div>
+                <label>Job Title</label>
+                <input type="text" name="job_title">
+            </div>
+        </div>
+
+        <label>Skills</label>
+        <div class="options wrap">
+            <label><input type="checkbox" name="skills" value="HTML"> HTML</label>
+            <label><input type="checkbox" name="skills" value="CSS"> CSS</label>
+            <label><input type="checkbox" name="skills" value="JavaScript"> JavaScript</label>
+            <label><input type="checkbox" name="skills" value="Node.js"> Node.js</label>
+            <label><input type="checkbox" name="skills" value="PHP"> PHP</label>
+            <label><input type="checkbox" name="skills" value="Python"> Python</label>
+            <label><input type="checkbox" name="skills" value="MySQL"> MySQL</label>
+        </div>
+
+        <h2>4. Contact & Profile</h2>
+        <div class="grid">
+            <div>
+                <label>Preferred Contact Method</label>
+                <select name="contact_preference">
+                    <option value="">Select</option>
+                    <option>Email</option>
+                    <option>Phone</option>
+                    <option>WhatsApp</option>
+                </select>
+            </div>
+
+            <div>
+                <label>LinkedIn Profile</label>
+                <input type="url" name="linkedin"
+                       placeholder="https://linkedin.com/in/username">
+            </div>
+        </div>
+
+        <label>Short Bio</label>
+        <textarea name="bio" rows="5"
+                  placeholder="Write a short introduction..."></textarea>
+
+        <h2>5. File Uploads</h2>
+
+        <div class="upload-box">
+            <label>Profile Image</label>
+            <input type="file" name="profile_image"
+                   accept="image/png,image/jpeg,image/gif" required>
+            <small>Allowed: JPG, JPEG, PNG, GIF. Maximum 2 MB.</small>
+        </div>
+
+        <div class="upload-box">
+            <label>Resume / CV</label>
+            <input type="file" name="resume"
+                   accept=".pdf,.doc,.docx">
+            <small>Allowed: PDF, DOC, DOCX. Maximum 2 MB.</small>
+        </div>
+
+        <h2>6. Confirmation</h2>
+
+        <div class="options">
+            <label>
+                <input type="checkbox" name="newsletter" value="1">
+                Subscribe to Alumni Newsletter
+            </label>
+            <label>
+                <input type="checkbox" name="terms_accepted" value="1" required>
+                I agree to the Terms & Conditions *
+            </label>
+        </div>
+
+        <div class="buttons">
+            <button type="submit">Submit Registration</button>
+            <button type="reset" class="reset">Reset Form</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
