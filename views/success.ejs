@@ -1,26 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Successful</title>
-    <link rel="stylesheet" href="/style.css">
-</head>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Registration Successful</title><link rel="stylesheet" href="/style.css"></head>
 <body>
-<div class="container success-card">
-    <div class="success-icon">✓</div>
-    <h1>Registration Successful!</h1>
-    <p>Thank you, <strong><%= name %></strong>.</p>
-    <p>Your alumni registration has been saved successfully.</p>
+<nav class="navbar"><a class="brand" href="/">Alumni Management</a><div><a href="/contact">Contact</a><a href="/login">Login</a></div></nav>
+<main class="container narrow success-card">
+    <div class="success-icon">✓</div><h1>Registration Successful!</h1>
+    <p>Thank you, <strong><%= name %></strong>. Your registration has been saved.</p>
     <p><strong>Registration ID:</strong> <%= id %></p>
-
-    <% if (profileImage) { %>
-        <img class="profile-preview"
-             src="/uploads/<%= profileImage %>"
-             alt="Profile Image">
-    <% } %>
-
-    <a class="button-link" href="/">Register Another Alumni</a>
-</div>
+    <% if (profileImage) { %><img class="profile-preview" src="/uploads/<%= profileImage %>" alt="Profile image"><% } %>
+    <% if (emailSent) { %><p class="alert success">A confirmation email has been sent to your email address.</p><% } else { %><p class="alert">Your registration is saved. Email confirmation is unavailable until SMTP is configured.</p><% } %>
+    <a class="button-link" href="/login">Sign in</a><a class="text-link" href="/">Register another alumnus</a>
+</main>
+<footer>Alumni Management System</footer>
 </body>
 </html>

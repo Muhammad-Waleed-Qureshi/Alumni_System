@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Contact Us</title><link rel="stylesheet" href="/style.css"></head>
+<body>
+<nav class="navbar"><a class="brand" href="/">Alumni Management</a><div><a href="/">Register</a><a href="/login">Login</a></div></nav>
+<main class="container narrow">
+    <header class="page-header"><h1>Contact Us</h1><p>Send a message to the Alumni Management team.</p></header>
+    <% if (typeof successMessage !== "undefined" && successMessage) { %><p class="alert success"><%= successMessage %></p><% } %>
+    <% if (typeof errorMessage !== "undefined" && errorMessage) { %><p class="alert error"><%= errorMessage %></p><% } %>
+    <form action="/contact" method="POST">
+        <label>Your Name</label><input type="text" name="name" maxlength="100" required>
+        <label>Your Email</label><input type="email" name="email" required>
+        <label>Subject</label><input type="text" name="subject" maxlength="150" required>
+        <label>Message</label><textarea name="message" rows="6" maxlength="5000" required></textarea>
+        <div class="buttons"><button type="submit">Send Message</button></div>
+    </form>
+</main>
+<footer>Alumni Management System</footer>
+</body>
+</html>

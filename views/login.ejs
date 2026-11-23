@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Login</title><link rel="stylesheet" href="/style.css"></head>
+<body>
+<nav class="navbar"><a class="brand" href="/">Alumni Management</a><div><a href="/">Register</a><a href="/contact">Contact</a></div></nav>
+<main class="container narrow">
+    <header class="page-header"><h1>Sign In</h1><p>Login as an alumnus or administrator.</p></header>
+    <% if (typeof errorMessage !== "undefined" && errorMessage) { %><p class="alert error"><%= errorMessage %></p><% } %>
+    <% if (notice) { %><p class="alert success"><%= notice %></p><% } %>
+    <form action="/login" method="POST">
+        <label>Email</label><input type="email" name="email" required autocomplete="username">
+        <label>Password</label><input type="password" name="password" required autocomplete="current-password">
+        <div class="buttons"><button type="submit">Login</button></div>
+    </form>
+    <p class="muted">New alumnus? <a href="/">Create your account</a>.</p>
+</main>
+<footer>Alumni Management System</footer>
+</body>
+</html>

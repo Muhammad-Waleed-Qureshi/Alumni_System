@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Admin Dashboard</title><link rel="stylesheet" href="/style.css"></head>
+<body>
+<nav class="navbar"><a class="brand" href="/admin">Alumni Management</a><div><span class="nav-user">Administrator</span><form class="inline-form" action="/logout" method="POST"><button class="nav-button" type="submit">Logout</button></form></div></nav>
+<main class="container wide">
+    <header class="page-header"><h1>Alumni Dashboard</h1><p>View, update and delete alumni records.</p></header>
+    <% if (notice) { %><p class="alert success"><%= notice %></p><% } %>
+    <div class="table-heading"><h2>Registered Alumni (<%= alumni.length %>)</h2><a class="button-link" href="/">+ Register Alumni</a></div>
+    <% if (!alumni.length) { %><p class="empty">No alumni records have been registered yet.</p><% } else { %>
+    <div class="table-wrap"><table>
+        <thead><tr><th>ID</th><th>Name</th><th>Email</th><th>Phone</th><th>Department</th><th>Graduation</th><th>Employment</th><th>Actions</th></tr></thead>
+        <tbody>
+        <% alumni.forEach(person => { %>
+            <tr>
+                <td><%= person.id %></td><td><strong><%= person.full_name %></strong></td><td><%= person.email %></td>
+                <td><%= person.phone || "—" %></td><td><%= person.department || "—" %></td><td><%= person.graduation_year || "—" %></td><td><%= person.employment_status || "—" %></td>
+                <td class="actions"><a class="small-link" href="/admin/alumni/<%= person.id %>/edit">Edit</a>
+                    <form class="inline-form" action="/admin/alumni/<%= person.id %>/delete" method="POST" onsubmit="return confirm('Delete this alumni record? This cannot be undone.');"><button class="danger small-button" type="submit">Delete</button></form>
+                </td>
+            </tr>
+        <% }) %>
+        </tbody>
+    </table></div><% } %>
+</main>
+<footer>Administrator area — session protected</footer>
+</body>
+</html>
