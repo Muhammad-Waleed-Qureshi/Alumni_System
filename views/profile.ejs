@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>My Alumni Profile</title><link rel="stylesheet" href="/style.css"></head>
+<body>
+<nav class="navbar"><a class="brand" href="/">Alumni Management</a><div><span class="nav-user"><%= alumni.full_name %></span><form class="inline-form" action="/logout" method="POST"><button class="nav-button" type="submit">Logout</button></form></div></nav>
+<main class="container narrow">
+    <header class="page-header"><h1>My Profile</h1><p>Your registered alumni information.</p></header>
+    <% if (alumni.profile_image) { %><img class="profile-preview" src="/uploads/<%= alumni.profile_image %>" alt="Profile image"><% } %>
+    <dl class="profile-list">
+        <dt>Name</dt><dd><%= alumni.full_name %></dd>
+        <dt>Email</dt><dd><%= alumni.email %></dd>
+        <dt>Phone</dt><dd><%= alumni.phone || "—" %></dd>
+        <dt>Department</dt><dd><%= alumni.department || "—" %></dd>
+        <dt>Graduation Year</dt><dd><%= alumni.graduation_year || "—" %></dd>
+        <dt>Degree</dt><dd><%= alumni.degree_program || "—" %></dd>
+        <dt>Employment</dt><dd><%= alumni.employment_status || "—" %></dd>
+        <dt>Company</dt><dd><%= alumni.company || "—" %></dd>
+        <dt>Job Title</dt><dd><%= alumni.job_title || "—" %></dd>
+    </dl>
+</main>
+<footer>Signed-in alumni area — session protected</footer>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Edit Alumni</title><link rel="stylesheet" href="/style.css"></head>
+<body>
+<nav class="navbar"><a class="brand" href="/admin">Alumni Management</a><div><a href="/admin">Dashboard</a><form class="inline-form" action="/logout" method="POST"><button class="nav-button" type="submit">Logout</button></form></div></nav>
+<main class="container narrow">
+    <header class="page-header"><h1>Edit Alumni Record</h1><p>Update information for <%= alumni.full_name %>.</p></header>
+    <form action="/admin/alumni/<%= alumni.id %>/update" method="POST" enctype="multipart/form-data">
+        <div class="grid">
+            <div><label>Full Name *</label><input name="full_name" value="<%= alumni.full_name %>" required></div>
+            <div><label>Email *</label><input type="email" name="email" value="<%= alumni.email %>" required></div>
+            <div><label>Phone</label><input name="phone" value="<%= alumni.phone || '' %>"></div>
+            <div><label>Department</label><input name="department" value="<%= alumni.department || '' %>"></div>
+            <div><label>Graduation Year</label><input type="number" name="graduation_year" value="<%= alumni.graduation_year || '' %>"></div>
+            <div><label>Employment Status</label><input name="employment_status" value="<%= alumni.employment_status || '' %>"></div>
+            <div><label>Company</label><input name="company" value="<%= alumni.company || '' %>"></div>
+            <div><label>Job Title</label><input name="job_title" value="<%= alumni.job_title || '' %>"></div>
+            <div><label>LinkedIn URL</label><input type="url" name="linkedin" value="<%= alumni.linkedin || '' %>"></div>
+        </div>
+        <label>Bio</label><textarea name="bio" rows="4"><%= alumni.bio || '' %></textarea>
+        <div class="grid">
+            <div class="upload-box"><label>Replace Profile Image</label><input type="file" name="profile_image" accept="image/png,image/jpeg,image/gif"><small>Current: <%= alumni.profile_image || "None" %></small></div>
+            <div class="upload-box"><label>Replace Resume</label><input type="file" name="resume" accept=".pdf,.doc,.docx"><small>Current: <%= alumni.resume || "None" %></small></div>
+        </div>
+        <div class="buttons"><button type="submit">Save Changes</button><a class="button-link secondary-link" href="/admin">Cancel</a></div>
+    </form>
+</main>
+<footer>Administrator area — session protected</footer>
+</body>
+</html>
